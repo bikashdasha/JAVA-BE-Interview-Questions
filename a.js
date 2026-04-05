@@ -1,3 +1,3 @@
-function getData(arr){
-  arr.forEach(item => console.log(item));
-}
+// function getData(arr){
+//   arr.forEach(item => console.log(item));
+// }
