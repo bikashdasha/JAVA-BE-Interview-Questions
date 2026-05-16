@@ -1,1 +1,6 @@
-
+1. Find Duplicate Elements in a List
+  List<Integer> list = Arrays.asList(1,2,3,4,2,5,1);
+  Set<Integer> set = new HashSet<>();
+  list.stream()
+    .filter(n -> !set.add(n))
+    .forEach(System.out::println);
