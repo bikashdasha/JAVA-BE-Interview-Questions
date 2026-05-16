@@ -24,3 +24,9 @@ Integer secondHighest = list.stream()
     .get();
 
 System.out.println(secondHighest);
+---------------------------------------------------------------------------------------------------------
+4. Sort Employees by Salary
+    employees.stream()
+    .sorted(Comparator.comparing(Employee::getSalary))
+    .forEach(System.out::println);
+---------------------------------------------------------------------------------------------------------
