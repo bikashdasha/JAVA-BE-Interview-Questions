@@ -1,9 +1,26 @@
-**1. Find Duplicate Elements in a List**
-
-```java
-List<Integer> list = Arrays.asList(1,2,3,4,2,5,1);
-Set<Integer> set = new HashSet<>();
-
-list.stream()
+1. Find Duplicate Elements in a List
+    List<Integer> list = Arrays.asList(1,2,3,4,2,5,1);
+    Set<Integer> set = new HashSet<>();
+    list.stream()
     .filter(n -> !set.add(n))
     .forEach(System.out::println);
+-------------------------------------------------------------------------------------------------------------
+2. Find Frequency of Each Character
+    String str = "banana";
+    Map<Character, Long> map = str.chars()
+    .mapToObj(c -> (char)c)
+    .collect(Collectors.groupingBy(
+        Function.identity(),
+        Collectors.counting()
+    ));
+System.out.println(map);
+-----------------------------------------------------------------------------------------------------------
+3. Find Second Highest Number
+List<Integer> list = Arrays.asList(10,20,30,40,50);
+Integer secondHighest = list.stream()
+    .sorted(Comparator.reverseOrder())
+    .skip(1)
+    .findFirst()
+    .get();
+
+System.out.println(secondHighest);
