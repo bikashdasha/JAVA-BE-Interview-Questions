@@ -30,3 +30,11 @@ System.out.println(secondHighest);
     .sorted(Comparator.comparing(Employee::getSalary))
     .forEach(System.out::println);
 ---------------------------------------------------------------------------------------------------------
+5. Convert List to Map
+    Map<Integer, String> map = employees.stream()
+.collect(Collectors.toMap(
+    Employee::getId,
+    Employee::getName
+));
+--------------------------------------------------------------------------------------------------------
+
