@@ -38,3 +38,165 @@ System.out.println(secondHighest);
 ));
 --------------------------------------------------------------------------------------------------------
 
+6. Find First Non-Repeated Character
+    String str = "swiss";
+
+    Character ch = str.chars()
+    .mapToObj(c -> (char)c)
+    .collect(Collectors.groupingBy(
+        Function.identity(),
+        LinkedHashMap::new,
+        Collectors.counting()
+    ))
+    .entrySet()
+    .stream()
+    .filter(e -> e.getValue() == 1)
+    .map(Map.Entry::getKey)
+    .findFirst()
+    .get();
+
+System.out.println(ch);
+
+-------------------------------------------------------------------------------------------------------------
+
+7. Remove Duplicate Elements
+    List<Integer> list = Arrays.asList(1,2,3,2,4,1,5);
+
+    List<Integer> unique = list.stream()
+    .distinct()
+    .collect(Collectors.toList());
+
+System.out.println(unique);
+
+-------------------------------------------------------------------------------------------------------------
+
+8. Find Even Numbers
+    List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8);
+
+    list.stream()
+    .filter(n -> n % 2 == 0)
+    .forEach(System.out::println);
+
+-------------------------------------------------------------------------------------------------------------
+
+9. Convert Strings to Uppercase
+    List<String> names = Arrays.asList("java","spring","boot");
+
+    List<String> upper = names.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+
+System.out.println(upper);
+
+-------------------------------------------------------------------------------------------------------------
+
+10. Find Sum of Numbers
+    List<Integer> list = Arrays.asList(1,2,3,4,5);
+
+    int sum = list.stream()
+    .mapToInt(Integer::intValue)
+    .sum();
+
+System.out.println(sum);
+
+-------------------------------------------------------------------------------------------------------------
+
+11. Find Maximum Number
+    List<Integer> list = Arrays.asList(10,40,30,90,50);
+
+    Integer max = list.stream()
+    .max(Integer::compare)
+    .get();
+
+System.out.println(max);
+
+-------------------------------------------------------------------------------------------------------------
+
+12. Find Minimum Number
+    List<Integer> list = Arrays.asList(10,40,30,90,50);
+
+    Integer min = list.stream()
+    .min(Integer::compare)
+    .get();
+
+System.out.println(min);
+
+-------------------------------------------------------------------------------------------------------------
+
+13. Count Total Elements
+    List<Integer> list = Arrays.asList(1,2,3,4,5);
+
+    long count = list.stream()
+    .count();
+
+System.out.println(count);
+
+-------------------------------------------------------------------------------------------------------------
+
+14. Join Strings
+    List<String> list = Arrays.asList("Java","Spring","Microservices");
+
+    String result = list.stream()
+    .collect(Collectors.joining(","));
+
+System.out.println(result);
+
+-------------------------------------------------------------------------------------------------------------
+
+15. Find Numbers Starting With 1
+    List<Integer> list = Arrays.asList(10,15,23,11,98);
+
+    list.stream()
+    .map(String::valueOf)
+    .filter(s -> s.startsWith("1"))
+    .forEach(System.out::println);
+
+-------------------------------------------------------------------------------------------------------------
+
+16. Sort List in Reverse Order
+    List<Integer> list = Arrays.asList(5,2,8,1,9);
+
+    list.stream()
+    .sorted(Comparator.reverseOrder())
+    .forEach(System.out::println);
+
+-------------------------------------------------------------------------------------------------------------
+
+17. Find Longest String
+    List<String> list = Arrays.asList("Java","SpringBoot","Microservices");
+
+    String longest = list.stream()
+    .max(Comparator.comparing(String::length))
+    .get();
+
+System.out.println(longest);
+
+-------------------------------------------------------------------------------------------------------------
+
+18. Group Employees by Department
+    Map<String, List<Employee>> map = employees.stream()
+    .collect(Collectors.groupingBy(Employee::getDepartment));
+
+System.out.println(map);
+
+-------------------------------------------------------------------------------------------------------------
+
+19. Partition Even and Odd Numbers
+    List<Integer> list = Arrays.asList(1,2,3,4,5,6);
+
+    Map<Boolean, List<Integer>> map = list.stream()
+    .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+System.out.println(map);
+
+-------------------------------------------------------------------------------------------------------------
+
+20. Check Palindrome String
+    String str = "madam";
+
+    boolean palindrome = IntStream.range(0, str.length()/2)
+    .noneMatch(i -> str.charAt(i) != str.charAt(str.length()-1-i));
+
+System.out.println(palindrome);
+
+-------------------------------------------------------------------------------------------------------------
