@@ -200,3 +200,241 @@ System.out.println(map);
 System.out.println(palindrome);
 
 -------------------------------------------------------------------------------------------------------------
+
+# JAVA 8 ALL THEORY INTERVIEW QUESTIONS & ANSWERS
+
+# (2 YEARS EXPERIENCE)
+
+---
+
+## QUESTION 1: WHAT IS JAVA 8?
+
+Answer:
+Java 8 is a major release introduced by Oracle.
+It introduced Functional Programming concepts and
+features like Lambda Expressions, Stream API,
+Optional, Method References, and Date & Time API.
+
+Main Features:
+
+1. Lambda Expressions
+2. Stream API
+3. Functional Interfaces
+4. Optional Class
+5. Method References
+6. Default Methods
+
+---
+
+## QUESTION 2: WHAT IS LAMBDA EXPRESSION?
+
+Answer:
+Lambda Expression is an anonymous function used to
+implement Functional Interfaces.
+
+Syntax:
+(parameters) -> expression
+
+Example:
+(a, b) -> a + b
+
+Advantages:
+
+* Reduces code
+* Improves readability
+* Supports functional programming
+
+Example Program:
+
+Runnable r = () -> {
+System.out.println("Thread Running");
+};
+
+---
+
+## QUESTION 3: WHAT IS FUNCTIONAL INTERFACE?
+
+Answer:
+An interface containing only one abstract method is
+called Functional Interface.
+
+Example:
+
+@FunctionalInterface
+interface Demo {
+void show();
+}
+
+Important Points:
+
+* Can contain multiple default methods
+* Can contain static methods
+* Only one abstract method allowed
+
+---
+
+## QUESTION 4: WHAT IS STREAM API?
+
+Answer:
+Stream API is used to process collections in a
+functional way.
+
+Common Operations:
+
+* filter()
+* map()
+* sorted()
+* collect()
+
+Example:
+
+List<Integer> list =
+Arrays.asList(1,2,3,4,5);
+
+list.stream()
+.filter(x -> x % 2 == 0)
+.forEach(System.out::println);
+
+---
+
+## QUESTION 5: DIFFERENCE BETWEEN COLLECTION AND STREAM?
+
+Answer:
+
+COLLECTION:
+
+* Stores data
+* Eager execution
+* Can modify data
+
+STREAM:
+
+* Processes data
+* Lazy execution
+* Cannot modify original data
+
+---
+
+## QUESTION 6: WHAT IS OPTIONAL CLASS?
+
+Answer:
+Optional class is used to avoid
+NullPointerException.
+
+Example:
+
+Optional<String> name =
+Optional.ofNullable(null);
+
+System.out.println(name.orElse("Default"));
+
+Methods:
+
+* isPresent()
+* get()
+* orElse()
+* orElseThrow()
+
+---
+
+## QUESTION 7: DIFFERENCE BETWEEN MAP() AND FLATMAP()?
+
+Answer:
+
+MAP():
+
+* One to one mapping
+* Used for transformation
+
+Example:
+list.stream().map(String::toUpperCase);
+
+FLATMAP():
+
+* Flattens nested collections
+* One to many mapping
+
+Example:
+list.stream().flatMap(List::stream);
+
+---
+
+## QUESTION 8: WHAT IS METHOD REFERENCE?
+
+Answer:
+Method Reference is shorthand syntax for
+lambda expression.
+
+Example:
+
+list.forEach(System.out::println);
+
+Equivalent Lambda:
+
+list.forEach(x -> System.out.println(x));
+
+Types:
+
+1. Static Method Reference
+2. Instance Method Reference
+3. Constructor Reference
+
+---
+
+## QUESTION 9: DIFFERENCE BETWEEN stream() AND parallelStream()?
+
+Answer:
+
+stream():
+
+* Sequential processing
+* Single thread
+
+parallelStream():
+
+* Parallel processing
+* Multiple threads
+
+Example:
+
+list.parallelStream()
+.forEach(System.out::println);
+
+---
+
+## QUESTION 10: WHAT ARE INTERMEDIATE AND TERMINAL OPERATIONS?
+
+Answer:
+
+INTERMEDIATE OPERATIONS:
+
+* Return Stream
+* Lazy in nature
+
+Examples:
+
+* filter()
+* map()
+* sorted()
+
+TERMINAL OPERATIONS:
+
+* Produce final result
+* Trigger stream execution
+
+Examples:
+
+* collect()
+* count()
+* forEach()
+
+Example:
+
+list.stream()
+.filter(x -> x > 5)
+.collect(Collectors.toList());
+
+---
+
+## END OF JAVA 8 INTERVIEW NOTES
+
