@@ -1,0 +1,334 @@
+1. What are the major features introduced in Java 9?
+Answer:
+
+Main features in Java 9:
+
+Module System (Project Jigsaw)
+JShell
+Factory methods for collections
+Stream API improvements
+Private methods in interfaces
+Optional class improvements
+Process API improvements
+2. What is Project Jigsaw?
+Answer:
+
+Project Jigsaw introduced the Java Module System in Java 9.
+
+Benefits:
+
+Better modularity
+Strong encapsulation
+Improved security
+Faster startup time
+3. What is a Module in Java 9?
+Answer:
+
+A module is a collection of packages and resources.
+
+Each module contains:
+
+module-info.java
+
+Example:
+
+module com.example.app {
+    requires java.sql;
+}
+4. What is module-info.java?
+Answer:
+
+It is a configuration file used to define a module.
+
+Example:
+
+module mymodule {
+    exports com.demo;
+}
+
+Keywords:
+
+requires
+exports
+opens
+uses
+provides
+5. Difference between Package and Module?
+Package	Module
+Group of classes	Group of packages
+No strong encapsulation	Strong encapsulation
+Introduced earlier	Introduced in Java 9
+6. What is JShell?
+Answer:
+
+JShell is a command-line REPL tool.
+
+REPL means:
+
+Read
+Evaluate
+Print
+Loop
+
+Example:
+
+jshell> int a = 10;
+jshell> System.out.println(a);
+
+Benefits:
+
+Quick testing
+Fast debugging
+Learning Java interactively
+7. What are Factory Methods in Java 9 Collections?
+Answer:
+
+Java 9 introduced immutable collection factory methods.
+
+Example:
+
+List<String> list = List.of("A", "B", "C");
+Set<Integer> set = Set.of(1, 2, 3);
+Map<Integer, String> map = Map.of(1, "Java", 2, "Python");
+
+Advantages:
+
+Less code
+Immutable collections
+8. What are private methods in interfaces?
+Answer:
+
+Java 9 allows private methods inside interfaces.
+
+Example:
+
+interface Test {
+
+    private void show() {
+        System.out.println("Private Method");
+    }
+
+    default void display() {
+        show();
+    }
+}
+
+Purpose:
+
+Code reusability
+Reduce duplication
+9. What are Stream API improvements in Java 9?
+Answer:
+
+New methods added:
+
+takeWhile()
+dropWhile()
+ofNullable()
+iterate()
+
+Example:
+
+List.of(1,2,3,4,5)
+      .stream()
+      .takeWhile(n -> n < 4)
+      .forEach(System.out::println);
+10. Explain takeWhile() in Stream API.
+Answer:
+
+takeWhile() processes elements until condition becomes false.
+
+Example:
+
+Stream.of(1,2,3,4,1,2)
+      .takeWhile(n -> n < 4)
+      .forEach(System.out::println);
+
+Output:
+
+1 2 3
+11. Explain dropWhile() in Stream API.
+Answer:
+
+dropWhile() skips elements until condition becomes false.
+
+Example:
+
+Stream.of(1,2,3,4,1,2)
+      .dropWhile(n -> n < 4)
+      .forEach(System.out::println);
+
+Output:
+
+4 1 2
+12. What is Stream.ofNullable()?
+Answer:
+
+Creates empty stream if value is null.
+
+Example:
+
+Stream.ofNullable(null)
+      .forEach(System.out::println);
+
+Prevents NullPointerException.
+
+13. What is the new iterate() method in Java 9?
+Answer:
+
+Java 9 added overloaded iterate() with condition.
+
+Example:
+
+Stream.iterate(1, n -> n <= 5, n -> n + 1)
+      .forEach(System.out::println);
+14. What improvements were made to Optional class in Java 9?
+Answer:
+
+New methods:
+
+ifPresentOrElse()
+or()
+stream()
+
+Example:
+
+Optional.of("Java")
+        .ifPresentOrElse(
+            System.out::println,
+            () -> System.out.println("Empty")
+        );
+15. Explain Optional.stream().
+Answer:
+
+Converts Optional object into Stream.
+
+Example:
+
+Optional<String> name = Optional.of("Java");
+
+name.stream()
+    .forEach(System.out::println);
+16. What is Process API Improvement in Java 9?
+Answer:
+
+Java 9 improved process handling using ProcessHandle.
+
+Example:
+
+ProcessHandle.current().pid();
+
+Features:
+
+Get process ID
+Destroy process
+Monitor child processes
+17. What is Multi-Release JAR in Java 9?
+Answer:
+
+A JAR file that supports multiple Java versions.
+
+Benefits:
+
+Backward compatibility
+Version-specific classes
+18. What is Reactive Streams API in Java 9?
+Answer:
+
+Java 9 introduced Flow API for reactive programming.
+
+Main interfaces:
+
+Publisher
+Subscriber
+Subscription
+Processor
+
+Package:
+
+java.util.concurrent.Flow
+19. What is Diamond Operator Enhancement in Java 9?
+Answer:
+
+Java 9 allows diamond operator with anonymous inner class.
+
+Example:
+
+List<String> list = new ArrayList<>() {
+};
+20. What is Compact String in Java 9?
+Answer:
+
+Java 9 optimized String memory usage.
+
+Before Java 9:
+
+Strings stored using char[]
+
+Java 9:
+
+Uses byte[]
+
+Benefits:
+
+Reduced memory usage
+Better performance
+Java 9 Coding Questions
+21. Create Immutable List Using Java 9
+import java.util.List;
+
+public class Demo {
+    public static void main(String[] args) {
+
+        List<String> list = List.of("Java", "Python");
+
+        System.out.println(list);
+    }
+}
+22. Use takeWhile()
+import java.util.stream.Stream;
+
+public class Demo {
+    public static void main(String[] args) {
+
+        Stream.of(1,2,3,4,5)
+              .takeWhile(n -> n < 4)
+              .forEach(System.out::println);
+    }
+}
+23. Use dropWhile()
+import java.util.stream.Stream;
+
+public class Demo {
+    public static void main(String[] args) {
+
+        Stream.of(1,2,3,4,5)
+              .dropWhile(n -> n < 4)
+              .forEach(System.out::println);
+    }
+}
+24. Java 9 Optional Example
+import java.util.Optional;
+
+public class Demo {
+    public static void main(String[] args) {
+
+        Optional<String> name = Optional.of("Java");
+
+        name.ifPresentOrElse(
+            System.out::println,
+            () -> System.out.println("Empty")
+        );
+    }
+}
+25. Java 9 Interface Private Method
+interface Demo {
+
+    private void show() {
+        System.out.println("Private");
+    }
+
+    default void display() {
+        show();
+    }
+}
